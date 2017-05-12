@@ -1,0 +1,6 @@
+export const IS_FETCHING = 'IS_FETCHING';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_FAIL = 'FETCH_FAIL';
+export const FETCH_COMPLETE = 'FETCH_COMPLETE';
+export const PLAYER_SELECTED = 'PLAYER_SELECTED';
+export const CLEAR_SELECTION = 'CLEAR_SELECTION';
