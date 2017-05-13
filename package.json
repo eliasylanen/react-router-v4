@@ -1,0 +1,13 @@
+{
+  "name": "react-router-v4",
+  "version": "1.0.0",
+  "description": "React Router v4 tutorials and excercises",
+  "author": "Elias Ylänen",
+  "license": "ISC",
+  "scripts": {
+    "create": "create-react-app"
+  },
+  "devDependencies": {
+    "create-react-app": "^1.3.0"
+  }
+}
