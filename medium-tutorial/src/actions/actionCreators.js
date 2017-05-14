@@ -6,12 +6,14 @@ import {
   FETCH_FAIL,
   FETCH_COMPLETE,
   PLAYER_SELECTED,
+  PLAYER_FOUND,
   CLEAR_SELECTION,
 } from './types.js';
 
 export const {
   fetchSuccess,
   playerSelected,
+  playerFound,
   isFetching,
   fetchComplete,
   clearSelection,
@@ -23,6 +25,9 @@ export const {
     },
     [PLAYER_SELECTED](playerNumber) {
       return playerNumber;
+    },
+    [PLAYER_FOUND](player) {
+      return player;
     },
     [IS_FETCHING]() {
       return true;

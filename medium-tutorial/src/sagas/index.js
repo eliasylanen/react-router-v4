@@ -1,9 +1,9 @@
 import { fork } from 'redux-saga/effects';
 
-import playersSaga from './playersSaga.js';
+import playerSaga from './playerSaga.js';
 import rosterSaga from './rosterSaga.js';
 
-export default function*() {
-  fork(playersSaga);
-  fork(rosterSaga);
+export default function* rootSaga() {
+  yield fork(playerSaga);
+  yield fork(rosterSaga);
 }

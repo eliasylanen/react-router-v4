@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from 'redux-saga';
+import { takeLatest, call, put, fork, all } from 'redux-saga/effects';
 
 import {
   isFetching,
@@ -8,18 +8,20 @@ import {
 } from '../actions/actionCreators.js';
 import { getAllPlayers } from '../playerAPI.js';
 
-function* getRoster(action) {
-  yield put(action);
+function* getRoster() {
   try {
     const players = yield call(getAllPlayers);
-    yield put(fetchSuccess(players));
+    yield all([put(fetchSuccess(players)), put(fetchComplete())]);
   } catch (error) {
-    yield put(fetchFail(new Error(error)));
+    yield all([put(fetchFail(new Error(error))), put(fetchComplete())]);
   }
-  yield put(fetchComplete);
+}
+
+function* startFetch(action) {
+  yield call(getRoster);
+  yield put(action);
 }
 
 export default function* rosterSaga() {
-  console.log('started');
-  yield takeLatest(isFetching(), getRoster);
+  yield takeLatest(isFetching().type, getRoster);
 }

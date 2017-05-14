@@ -7,13 +7,8 @@ import { getPlayer } from '../../playerAPI.js';
 import { playerSelected } from '../../actions/actionCreators.js';
 
 class Player extends Component {
-  // const player = getPlayer(match.params.number);
-  // console.log(player);
   componentDidMount() {
-    console.log(this.props);
-    getPlayer(this.props.match.params.number).then(player => {
-      this.props.onPlayerSelected(player);
-    });
+    this.props.onPlayerSelected(this.props.match.params.number);
   }
 
   render() {
