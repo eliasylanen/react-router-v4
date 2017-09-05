@@ -1,4 +1,4 @@
-import { takeLatest, call, put, fork, all } from 'redux-saga/effects';
+import { takeLatest, call, put, all } from 'redux-saga/effects';
 
 import {
   isFetching,
@@ -15,11 +15,6 @@ function* getRoster() {
   } catch (error) {
     yield all([put(fetchFail(new Error(error))), put(fetchComplete())]);
   }
-}
-
-function* startFetch(action) {
-  yield call(getRoster);
-  yield put(action);
 }
 
 export default function* rosterSaga() {

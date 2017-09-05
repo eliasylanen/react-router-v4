@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { getPlayer } from '../../playerAPI.js';
 import { playerSelected } from '../../actions/actionCreators.js';
 
 class Player extends Component {
@@ -14,24 +13,22 @@ class Player extends Component {
   render() {
     return (
       <div>
-        {!_.isEmpty(this.props.selectedPlayer)
-          ? <div>
-              <h3>Number</h3> <p>{this.props.selectedPlayer.number}</p>
-              <h3>Name</h3> <p>{this.props.selectedPlayer.name}</p>
-              <h3>Position</h3> <p>{this.props.selectedPlayer.position}</p>
-            </div>
-          : <h3>No player found</h3>}
+        {!_.isEmpty(this.props.selectedPlayer) ? (
+          <div>
+            <h3>Number</h3> <p>{this.props.selectedPlayer.number}</p>
+            <h3>Name</h3> <p>{this.props.selectedPlayer.name}</p>
+            <h3>Position</h3> <p>{this.props.selectedPlayer.position}</p>
+          </div>
+        ) : (
+          <h3>No player found</h3>
+        )}
         <Link to="/roster">Back</Link>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ selectedPlayer }) => {
-  return {
-    selectedPlayer,
-  };
-};
+const mapStateToProps = ({ selectedPlayer }) => ({ selectedPlayer });
 
 const mapDispatchToProps = dispatch => {
   return {

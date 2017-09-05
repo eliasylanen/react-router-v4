@@ -1,3 +1,4 @@
+export const LOGIN = 'LOGIN';
 export const IS_FETCHING = 'IS_FETCHING';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';

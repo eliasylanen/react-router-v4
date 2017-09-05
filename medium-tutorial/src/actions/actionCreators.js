@@ -1,6 +1,7 @@
 import { createActions } from 'redux-actions';
 
 import {
+  LOGIN,
   IS_FETCHING,
   FETCH_SUCCESS,
   FETCH_FAIL,
@@ -11,6 +12,7 @@ import {
 } from './types.js';
 
 export const {
+  login,
   fetchSuccess,
   playerSelected,
   playerFound,
@@ -20,6 +22,9 @@ export const {
   fetchFail,
 } = createActions(
   {
+    [LOGIN](jwt) {
+      return jwt;
+    },
     [FETCH_SUCCESS](players) {
       return players;
     },
