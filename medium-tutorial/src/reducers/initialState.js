@@ -1,5 +1,5 @@
 export default {
-  jwt: null,
+  login: null,
   isFetching: false,
   players: [],
   selectedPlayer: {},
